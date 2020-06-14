@@ -2,7 +2,7 @@ package com.kodilla.testing.weather.stub;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class WeatherForecastTestSuite {
 
