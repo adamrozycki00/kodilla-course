@@ -50,8 +50,12 @@ public class ForumUser {
     }
 
     public boolean removePost(ForumPost thePost) {
-        // return true temporarily
-        return true;
+        boolean result = false;
+        if (posts.contains(thePost)){
+            posts.remove(thePost);
+            result = true;
+        }
+        return result;
     }
 
     public boolean removeComment(ForumComment theComment) {
