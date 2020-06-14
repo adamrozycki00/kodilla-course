@@ -1,5 +1,8 @@
-package com.kodilla.testing.forum;
+package com.kodilla.testing.forum.tdd;
 
+import com.kodilla.testing.forum.ForumComment;
+import com.kodilla.testing.forum.ForumPost;
+import com.kodilla.testing.forum.ForumUser;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -152,6 +155,7 @@ public class ForumTestSuite {
         assertTrue(result);
         assertEquals(0, forumUser.getCommentsQuantity());
     }
+
 
 
 
