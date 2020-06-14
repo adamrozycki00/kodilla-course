@@ -10,6 +10,12 @@ public class StatisticsCalculator {
     private double avgNumberOfCommentsPerPost;
 
     public void calculateAdvStatistics(Statistics statistics) {
+        numberOfUsers = statistics.usersNames().size();
+        numberOfPosts = statistics.postsCount();
+        numberOfComments = statistics.commentsCount();
+        avgNumberOfPostsPerUser = (double) numberOfPosts / numberOfUsers;
+        avgNumberOfCommentsPerUser = (double) numberOfComments / numberOfUsers;
+        avgNumberOfCommentsPerPost = (double) numberOfComments / numberOfPosts;
     }
 
     public void showStatistics() {
