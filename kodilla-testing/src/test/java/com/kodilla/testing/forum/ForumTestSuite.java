@@ -1,50 +1,27 @@
 package com.kodilla.testing.forum;
 
-import com.kodilla.testing.user.SimpleUser;
-import org.junit.*;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
 
 public class ForumTestSuite {
 
-    @Before
-    public void before(){
-        System.out.println("Test Case: begin");
-    }
-
-    @After
-    public void after(){
-        System.out.println("Test Case: end");
-    }
+    private static int testCounter = 0;
 
     @BeforeClass
-    public static void beforeClass() {
-        System.out.println("Test Suite: begin");
+    public static void beforeAllTests() {
+        System.out.println("This is the beginning of tests.");
     }
 
     @AfterClass
-    public static void afterClass() {
-        System.out.println("Test Suite: end");
+    public static void afterAllTests() {
+        System.out.println("All tests are finished.");
     }
 
-    @Test
-    public void testCaseUsername(){
-        //Given
-        SimpleUser simpleUser = new SimpleUser("theForumUser", "John Smith");
-        //When
-        String result = simpleUser.getUsername();
-        System.out.println("Testing " + result);
-        //Then
-        Assert.assertEquals("theForumUser", result);
-    }
-
-    @Test
-    public void testCaseRealName(){
-        //Given
-        SimpleUser simpleUser = new SimpleUser("theForumUser", "John Smith");
-        //When
-        String result = simpleUser.getRealName();
-        System.out.println("Testing " + result);
-        //Then
-        Assert.assertEquals("John Smith", result);
+    @Before
+    public void beforeEveryTest() {
+        testCounter++;
+        System.out.println("Preparing to execute test #" + testCounter);
     }
 
 }
