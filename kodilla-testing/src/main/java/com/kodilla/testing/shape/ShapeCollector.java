@@ -11,16 +11,21 @@ public class ShapeCollector {
         this.shapes = new ArrayList<>();
     }
 
-    public boolean add(Shape shape) {
+    public boolean addFigure(Shape shape) {
         return shapes.add(shape);
     }
 
-    public boolean remove(Shape shape) {
+    public boolean removeFigure(Shape shape) {
         return shapes.remove(shape);
     }
 
-    public Shape get(int index) {
+    public Shape getFigure(int index) {
         return shapes.get(index);
+    }
+
+    public void showFigures() {
+        for (Shape shape : shapes)
+            System.out.println(shape.getShapeName());
     }
 
 }
