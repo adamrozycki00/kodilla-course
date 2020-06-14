@@ -42,8 +42,11 @@ public class ForumUser {
     }
 
     public ForumComment getComment(int commentNumber) {
-        // returning null means that the operation was unsuccessful
-        return null;
+        ForumComment theComment = null;
+        if (commentNumber >= 0 && commentNumber < comments.size()){
+            theComment = comments.get(commentNumber);
+        }
+        return theComment;
     }
 
     public boolean removePost(ForumPost thePost) {
