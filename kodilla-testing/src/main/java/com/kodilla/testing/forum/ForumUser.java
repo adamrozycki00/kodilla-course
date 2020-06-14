@@ -34,8 +34,11 @@ public class ForumUser {
     }
 
     public ForumPost getPost(int postNumber) {
-        // returning null means that the operation was unsuccessful
-        return null;
+        ForumPost thePost = null;
+        if (postNumber >= 0 && postNumber < posts.size()) {
+            thePost = posts.get(postNumber);
+        }
+        return thePost;
     }
 
     public ForumComment getComment(int commentNumber) {
