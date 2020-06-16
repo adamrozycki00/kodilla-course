@@ -104,17 +104,6 @@ public class BookLibraryTestSuite {
         assertEquals(5, booksOfUserFive.size());
     }
 
-    @Test
-    public void testlistBooksInHandsOf1Book() {
-
-    }
-
-    @Test
-    public void testlistBooksInHandsOf5Books() {
-
-    }
-
-
     private List<Book> generateListOfNBooks(int booksQuantity) {
         List<Book> resultList = new ArrayList<>();
         for(int n = 1; n <= booksQuantity; n++){
