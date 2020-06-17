@@ -1,18 +1,13 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
+import com.kodilla.stream.iterate.NumberGenerator;
 
 public class StreamMain {
 
     public static void main(String[] args) {
 
-        PoemBeautifier beautifier = new PoemBeautifier();
-        String text = "Original string";
-
-        System.out.println(beautifier.beautify(text, String::toUpperCase));
-        System.out.println(beautifier.beautify(text, String::toLowerCase));
-        System.out.println(beautifier.beautify(text, str -> "ABC " + str + " ABC"));
-        System.out.println(beautifier.beautify(text, str -> str.replace(' ', '*')));
+        System.out.println("Using Stream to generate even numbers from 1 to 20");
+        NumberGenerator.generateEven(20);
 
     }
 
