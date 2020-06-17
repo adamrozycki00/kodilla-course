@@ -1,24 +1,19 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.lambda.ExpressionExecutor;
-import com.kodilla.stream.reference.FunctionalCalculator;
+import com.kodilla.stream.beautifier.PoemBeautifier;
 
 public class StreamMain {
 
     public static void main(String[] args) {
-        ExpressionExecutor expressionExecutor = new ExpressionExecutor();
 
-        System.out.println("Calculating expressions with lambdas");
-        expressionExecutor.executeExpression(10, 5, Double::sum);
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a - b);
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a * b);
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a / b);
+        PoemBeautifier beautifier = new PoemBeautifier();
+        String text = "Original string";
 
-        System.out.println("Calculating expressions with method references");
-        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::multiplyAByB);
-        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::addAToB);
-        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::subBFromA);
-        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::divideAByB);
+        System.out.println(beautifier.beautify(text, String::toUpperCase));
+        System.out.println(beautifier.beautify(text, String::toLowerCase));
+        System.out.println(beautifier.beautify(text, str -> "ABC " + str + " ABC"));
+        System.out.println(beautifier.beautify(text, str -> str.replace(' ', '*')));
+
     }
 
 }
