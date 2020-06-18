@@ -2,6 +2,7 @@ package com.kodilla.stream.forum;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public final class ForumUser {
 
@@ -15,6 +16,12 @@ public final class ForumUser {
         this.username = username;
         this.realName = realName;
         this.location = location;
+    }
+
+    public Set<String> getLocationsOfFriends() {
+        return friends.stream()
+                .map(ForumUser::getLocation)
+                .collect(Collectors.toSet());
     }
 
     public void addFriend(ForumUser user) {
