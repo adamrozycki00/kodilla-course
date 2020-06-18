@@ -1,4 +1,4 @@
-package com.kodilla.stream.immutable;
+package com.kodilla.stream.book;
 
 public final class Book {
 
@@ -23,6 +23,15 @@ public final class Book {
 
     public int getYearOfPublication() {
         return yearOfPublication;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", yearOfPublication=" + yearOfPublication +
+                '}';
     }
 
 }
