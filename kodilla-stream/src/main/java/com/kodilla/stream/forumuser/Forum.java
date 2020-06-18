@@ -21,7 +21,7 @@ public final class Forum {
         ForumUser user5 = new ForumUser(1005, "User5", 'M',
                 LocalDate.of(1990, 5, 5));
         ForumUser user6 = new ForumUser(1006, "User6", 'M',
-                LocalDate.of(2000, 6, 6));
+                LocalDate.of(2001, 6, 6));
         forumUsers.add(user1);
         forumUsers.add(user2);
         forumUsers.add(user3);
