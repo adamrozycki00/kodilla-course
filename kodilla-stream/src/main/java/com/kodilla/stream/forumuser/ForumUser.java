@@ -8,17 +8,14 @@ public final class ForumUser {
     private final String username;
     private final char sex;
     private final LocalDate dob;
-    private int numberOfPosts;
+    private final int numberOfPosts;
 
-    public ForumUser(int userId, String username, char sex, LocalDate dob) {
+    public ForumUser(int userId, String username, char sex, LocalDate dob, int numberOfPosts) {
         this.userId = userId;
         this.username = username;
         this.sex = sex;
         this.dob = dob;
-    }
-
-    public void addPost() {
-        ++numberOfPosts;
+        this.numberOfPosts = numberOfPosts;
     }
 
     public int getUserId() {
