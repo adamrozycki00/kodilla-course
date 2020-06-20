@@ -7,18 +7,27 @@ import static org.junit.Assert.*;
 public class ArrayOperationsTestSuite {
 
     @Test
-    public void testGetAverage() {
+    public void shouldReturnAverageOfGivenNumbers() {
         //given
-        int[] intArr0 = {};
         int[] intArr = {1, 3, -4, 24};
 
         //when
-        double res0 = ArrayOperations.getAverage(intArr0);
         double res = ArrayOperations.getAverage(intArr);
 
         //then
-        assertEquals(0, res0, 0);
         assertEquals(6, res, .001);
+    }
+
+    @Test
+    public void shouldReturnZero() {
+        //given
+        int[] intArr0 = {};
+
+        //when
+        double res0 = ArrayOperations.getAverage(intArr0);
+
+        //then
+        assertEquals(0, res0, 0);
     }
 
 }
