@@ -5,34 +5,53 @@ import java.util.Scanner;
 public class Rps {
 
     private String playerName;
-    private int roundsToWin;
-    private Scanner scanner = new Scanner(System.in);
+    private int maxScore;
+    private final Scanner scanner;
 
-    public void askForInitParams() {
+    public Rps() {
+        this.scanner = new Scanner(System.in);
+    }
+
+    public void run() {
+        askForInitParams();
+        showGameRules();
+        new RpsGame(this).play();
+    }
+
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    public int getMaxScore() {
+        return maxScore;
+    }
+
+    public Scanner getScanner() {
+        return scanner;
+    }
+
+    private void askForInitParams() {
         System.out.print("What's your name? ");
         playerName = getPlayerName(scanner.nextLine());
 
         System.out.print("What's the number of rounds? ");
-        roundsToWin = getRoundsToWin(scanner.nextLine());
-
-        System.out.printf("\n%s, you have to win %d rounds to win the game. Good luck!\n",
-                playerName, roundsToWin);
-        System.out.println("(press Enter)");
-        scanner.nextLine();
+        maxScore = getRoundsToWin(scanner.nextLine());
     }
 
-    public void showGameRules() {
-        String gameRules = "Game rules:\n" +
-                "\tpress '1' to choose rock\n" +
-                "\tpress '2' to choose paper\n" +
-                "\tpress '3' to choose scissors\n" +
-                "\tpress 'x' to quit\n" +
-                "\tpress 'n' to restart\n\n";
+    private void showGameRules() {
+        String gameRules = "\nGame rules:\n" +
+                "\tpress '1' and Enter to choose ROCK\n" +
+                "\tpress '2' and Enter to choose PAPER\n" +
+                "\tpress '3' and Enter to choose SCISSORS\n" +
+                "\tpress 'x' and Enter to quit\n" +
+                "\tpress 'n' and Enter to restart\n";
         System.out.println(gameRules);
     }
 
     private String getPlayerName(String input) {
-        return input.length() > 0 ? input : "Player";
+        int len = input.length();
+        return len > 0 ?
+                input.substring(0, Math.min(20, len)) : "Player";
     }
 
     private int getRoundsToWin(String input) {
