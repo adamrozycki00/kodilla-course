@@ -3,9 +3,9 @@ package rps;
 public class RpsMain {
 
     public static void main(String[] args) {
-
-        new Rps().run();
-
+        RpsConfig config = new RpsConfig();
+        config.askForInitParams();
+        new RpsGame(config).run();
     }
 
 }

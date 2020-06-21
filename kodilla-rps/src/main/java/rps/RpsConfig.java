@@ -1,21 +1,20 @@
 package rps;
 
+import java.util.List;
 import java.util.Scanner;
 
-public class Rps {
+import static rps.RpsTool.*;
 
+public class RpsConfig {
+
+    private final List<RpsTool> tools;
+    private final Scanner scanner;
     private String playerName;
     private int maxScore;
-    private final Scanner scanner;
 
-    public Rps() {
+    public RpsConfig() {
+        this.tools = List.of(ROCK, PAPER, SCISSORS);
         this.scanner = new Scanner(System.in);
-    }
-
-    public void run() {
-        askForInitParams();
-        showGameRules();
-        new RpsGame(this).play();
     }
 
     public String getPlayerName() {
@@ -26,26 +25,20 @@ public class Rps {
         return maxScore;
     }
 
+    public List<RpsTool> getTools() {
+        return tools;
+    }
+
     public Scanner getScanner() {
         return scanner;
     }
 
-    private void askForInitParams() {
+    public void askForInitParams() {
         System.out.print("What's your name? ");
         playerName = getPlayerName(scanner.nextLine());
 
         System.out.print("What's the number of rounds? ");
         maxScore = getRoundsToWin(scanner.nextLine());
-    }
-
-    private void showGameRules() {
-        String gameRules = "\nGame rules:\n" +
-                "\tpress '1' and Enter to choose ROCK\n" +
-                "\tpress '2' and Enter to choose PAPER\n" +
-                "\tpress '3' and Enter to choose SCISSORS\n" +
-                "\tpress 'x' and Enter to quit\n" +
-                "\tpress 'n' and Enter to restart\n";
-        System.out.println(gameRules);
     }
 
     private String getPlayerName(String input) {

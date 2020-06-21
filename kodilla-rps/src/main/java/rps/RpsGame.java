@@ -4,57 +4,75 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-import static rps.RpsTool.*;
-
 public class RpsGame {
 
-    private Rps rps;
-    private RpsScore rpsScore;
-    private final List<RpsTool> tools;
-    private RpsTool player = null;
-    private RpsTool machine;
+    private final RpsConfig rpsConfig;
     private final Scanner scanner;
     private boolean end;
 
-    public RpsGame(Rps rps) {
-        this.rps = rps;
-        this.tools = List.of(ROCK, PAPER, SCISSORS);
-        rpsScore = new RpsScore(rps);
-        scanner = rps.getScanner();
+    public RpsGame(RpsConfig rpsConfig) {
+        this.rpsConfig = rpsConfig;
+        this.scanner = rpsConfig.getScanner();
     }
 
-    public void play() {
+    public void run() {
+        showGameRules();
+        play();
+    }
+
+    private void play() {
         prepareToPlay();
-        Random random = new Random();
+        RpsScore rpsScore = new RpsScore(rpsConfig);
+        rpsScore.showScore();
+        List<RpsTool> tools = rpsConfig.getTools();
+        Random rand = new Random();
+
         while (!end) {
-            String in = scanner.nextLine().toLowerCase();
-            switch (in) {
-                case "1":
-                case "2":
-                case "3":
-                    player = tools.get(Integer.parseInt(in) - 1);
-                    break;
-                case "x":
-                    if (verifyQuit())
-                        end = true;
-                    break;
-                case "n":
-                    if (verifyRestart())
-                        play();
-                    break;
-                default:
-                    continue;
-            }
-            machine = tools.get(random.nextInt(3));
-            rpsScore.score(player, machine);
+            RpsTool playerChoice = getPlayerChoice(scanner.nextLine().toLowerCase());
+            if (playerChoice == null)
+                continue;
+            RpsTool machineChoice = tools.get(rand.nextInt(tools.size()));
+            rpsScore.score(playerChoice, machineChoice);
             rpsScore.showScore();
             if (rpsScore.maxScore())
                 endGame();
         }
     }
 
-    public Rps getRps() {
-        return rps;
+    private RpsTool getPlayerChoice(String in) {
+        switch (in) {
+            case "1":
+            case "2":
+            case "3":
+                return rpsConfig.getTools().get(Integer.parseInt(in) - 1);
+            case "x":
+                if (verifyQuit())
+                    endGame();
+                break;
+            case "n":
+                if (verifyRestart())
+                    play();
+                break;
+        }
+        return null;
+    }
+
+    private void showGameRules() {
+        String gameRules = "\nGame rules:\n" +
+                "\tpress '1' and Enter to choose ROCK\n" +
+                "\tpress '2' and Enter to choose PAPER\n" +
+                "\tpress '3' and Enter to choose SCISSORS\n" +
+                "\tpress 'x' and Enter to quit\n" +
+                "\tpress 'n' and Enter to restart\n";
+        System.out.println(gameRules);
+    }
+
+    private void prepareToPlay() {
+        System.out.println("New game!");
+        System.out.printf("\n%s, you have to win %d rounds to win the game. Good luck!\n",
+                rpsConfig.getPlayerName(), rpsConfig.getMaxScore());
+        System.out.println("(press Enter)");
+        scanner.nextLine();
     }
 
     private boolean verifyQuit() {
@@ -65,14 +83,6 @@ public class RpsGame {
     private boolean verifyRestart() {
         System.out.println("Are you sure you want to restart? (y/n)");
         return scanner.nextLine().toLowerCase().equals("y");
-    }
-
-    private void prepareToPlay() {
-        System.out.println("New game!");
-        System.out.printf("\n%s, you have to win %d rounds to win the game. Good luck!\n",
-                rps.getPlayerName(), rps.getMaxScore());
-        System.out.println("(press Enter)");
-        scanner.nextLine();
     }
 
     private void endGame() {
