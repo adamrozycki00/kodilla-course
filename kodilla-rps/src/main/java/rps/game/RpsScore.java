@@ -1,4 +1,6 @@
-package rps;
+package rps.game;
+
+import rps.tools.RpsTool;
 
 import java.util.List;
 
@@ -18,8 +20,8 @@ public class RpsScore {
         List<RpsTool> tools = rpsConfig.getTools();
         int result = (tools.indexOf(playerChoice) - tools.indexOf(machineChoice) + 3) % 3;
         if (result == 1) {
-            System.out.printf("%s won!\n", rpsConfig.getPlayerName());
             ++playerScore;
+            System.out.printf("%s won!\n", rpsConfig.getPlayerName());
         } else if (result == 2) {
             ++machineScore;
             System.out.println("Machine won...");
@@ -29,7 +31,8 @@ public class RpsScore {
     }
 
     public boolean maxScore() {
-        return playerScore == rpsConfig.getMaxScore() || machineScore == rpsConfig.getMaxScore();
+        int maxScore = rpsConfig.getMaxScore();
+        return playerScore == maxScore || machineScore == maxScore;
     }
 
     public void showScore() {

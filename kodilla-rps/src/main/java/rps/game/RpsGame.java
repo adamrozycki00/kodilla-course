@@ -1,4 +1,6 @@
-package rps;
+package rps.game;
+
+import rps.tools.RpsTool;
 
 import java.util.List;
 import java.util.Random;

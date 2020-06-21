@@ -1,9 +1,11 @@
-package rps;
+package rps.game;
+
+import rps.tools.RpsTool;
 
 import java.util.List;
 import java.util.Scanner;
 
-import static rps.RpsTool.*;
+import static rps.tools.RpsTool.*;
 
 public class RpsConfig {
 
