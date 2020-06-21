@@ -38,7 +38,7 @@ public class RpsConfig {
         playerName = getPlayerName(scanner.nextLine());
 
         System.out.print("How many wins in the game? ");
-        maxScore = getRoundsToWin(scanner.nextLine());
+        maxScore = getMaxScore(scanner.nextLine());
     }
 
     private String getPlayerName(String input) {
@@ -47,7 +47,7 @@ public class RpsConfig {
                 input.substring(0, Math.min(20, len)) : "Player";
     }
 
-    private int getRoundsToWin(String input) {
+    private int getMaxScore(String input) {
         int num;
         try {
             num = Integer.parseInt(input);
