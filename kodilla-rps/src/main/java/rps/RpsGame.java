@@ -68,11 +68,9 @@ public class RpsGame {
     }
 
     private void prepareToPlay() {
-        System.out.println("New game!");
-        System.out.printf("\n%s, you have to win %d rounds to win the game. Good luck!\n",
+        System.out.println("***************** New game *****************");
+        System.out.printf("%s, you have to win %d rounds to win the game. Good luck!\n",
                 rpsConfig.getPlayerName(), rpsConfig.getMaxScore());
-        System.out.println("(press Enter)");
-        scanner.nextLine();
     }
 
     private boolean verifyQuit() {
@@ -87,7 +85,7 @@ public class RpsGame {
 
     private void endGame() {
         end = true;
-        System.out.println("End of game");
+        System.out.println("**************** End of game ****************");
     }
 
 }

@@ -1,6 +1,6 @@
 package rps;
 
-import static rps.RpsTool.*;
+import java.util.List;
 
 public class RpsScore {
 
@@ -12,18 +12,19 @@ public class RpsScore {
         this.rpsConfig = rpsConfig;
     }
 
-    public void score(RpsTool player, RpsTool machine) {
-        System.out.printf("%s: %s, Machine: %s\n", rpsConfig.getPlayerName(), player, machine);
-
-        if (player == ROCK && machine == SCISSORS
-                || player == SCISSORS && machine == PAPER
-                || player == PAPER && machine == ROCK) {
-            ++playerScore;
+    public void score(RpsTool playerChoice, RpsTool machineChoice) {
+        System.out.printf("%s: %s, Machine: %s\n",
+                rpsConfig.getPlayerName(), playerChoice, machineChoice);
+        List<RpsTool> tools = rpsConfig.getTools();
+        int result = (tools.indexOf(playerChoice) - tools.indexOf(machineChoice) + 3) % 3;
+        if (result == 1) {
             System.out.printf("%s won!\n", rpsConfig.getPlayerName());
-        }
-        else {
+            ++playerScore;
+        } else if (result == 2) {
             ++machineScore;
             System.out.println("Machine won...");
+        } else {
+            System.out.println("Draw...");
         }
     }
 

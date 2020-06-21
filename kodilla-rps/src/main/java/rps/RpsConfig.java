@@ -37,7 +37,7 @@ public class RpsConfig {
         System.out.print("What's your name? ");
         playerName = getPlayerName(scanner.nextLine());
 
-        System.out.print("What's the number of rounds? ");
+        System.out.print("How many wins in the game? ");
         maxScore = getRoundsToWin(scanner.nextLine());
     }
 
@@ -54,7 +54,7 @@ public class RpsConfig {
         } catch (Exception e) {
             num = 5;
         }
-        return num;
+        return num > 0 ? num : 5;
     }
 
 }
