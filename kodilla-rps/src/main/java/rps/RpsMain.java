@@ -6,6 +6,9 @@ public class RpsMain {
 
         Rps rps = new Rps();
         rps.askForInitParams();
+        rps.showGameRules();
+
+
 
     }
 
