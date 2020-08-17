@@ -5,18 +5,18 @@ import com.kodilla.good.patterns.challenges.model.User;
 public class OrderDto {
 
     private User user;
-    private boolean isRented;
+    private boolean isOrdered;
 
-    public OrderDto(final User user, final boolean isRented) {
+    public OrderDto(final User user, final boolean isOrdered) {
         this.user = user;
-        this.isRented = isRented;
+        this.isOrdered = isOrdered;
     }
 
     public User getUser() {
         return user;
     }
 
-    public boolean isRented() {
-        return isRented;
+    public boolean isOrdered() {
+        return isOrdered;
     }
 }
