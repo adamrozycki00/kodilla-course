@@ -1,6 +1,6 @@
-package com.kodilla.good.patterns.challenges.infoservice;
+package com.kodilla.good.patterns.challenges.challenge1.infoservice;
 
-import com.kodilla.good.patterns.challenges.model.User;
+import com.kodilla.good.patterns.challenges.challenge1.model.User;
 
 public class MailService implements InformationService {
 

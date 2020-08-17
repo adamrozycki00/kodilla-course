@@ -1,9 +1,9 @@
-package com.kodilla.good.patterns.challenges.orderservice;
+package com.kodilla.good.patterns.challenges.challenge1.orderservice;
 
-import com.kodilla.good.patterns.challenges.orderrepo.OrderDto;
-import com.kodilla.good.patterns.challenges.orderrepo.OrderRepository;
-import com.kodilla.good.patterns.challenges.orderrequest.OrderRequest;
-import com.kodilla.good.patterns.challenges.infoservice.InformationService;
+import com.kodilla.good.patterns.challenges.challenge1.orderrepo.OrderDto;
+import com.kodilla.good.patterns.challenges.challenge1.orderrepo.OrderRepository;
+import com.kodilla.good.patterns.challenges.challenge1.orderrequest.OrderRequest;
+import com.kodilla.good.patterns.challenges.challenge1.infoservice.InformationService;
 
 public class ProductOrderService {
 
