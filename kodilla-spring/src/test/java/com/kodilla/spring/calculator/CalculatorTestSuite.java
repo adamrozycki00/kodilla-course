@@ -6,6 +6,8 @@ import org.junit.contrib.java.lang.system.SystemOutRule;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import static org.junit.Assert.assertEquals;
+
 public class CalculatorTestSuite {
 
     @Rule
@@ -25,7 +27,7 @@ public class CalculatorTestSuite {
         calculator.add(a, b);
 
         //then
-//        assertEquals(res, log.getLog());
+        assertEquals(res, log.getLog());
     }
 
     @Test
@@ -42,7 +44,7 @@ public class CalculatorTestSuite {
         calculator.sub(a, b);
 
         //then
-//        assertEquals(res, log.getLog());
+        assertEquals(res, log.getLog());
     }
 
     @Test
@@ -59,7 +61,7 @@ public class CalculatorTestSuite {
         calculator.mul(a, b);
 
         //then
-//        assertEquals(res, log.getLog());
+        assertEquals(res, log.getLog());
     }
 
     @Test
@@ -76,7 +78,7 @@ public class CalculatorTestSuite {
         calculator.div(a, b);
 
         //then
-//        assertEquals(res, log.getLog());
+        assertEquals(res, log.getLog());
     }
 
 }
