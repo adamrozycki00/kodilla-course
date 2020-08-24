@@ -7,12 +7,6 @@ public class Board {
 
     final private Figure[][] board = new Figure[MAX_INDEX + 1][MAX_INDEX + 1];
 
-//    public Board() {
-//        for (int n = 0; n < 10; n++) {
-//            board[n] = new Figure[10];
-//        }
-//    }
-
     public Figure getFigure(int x, int y) {
         return board[x][y];
     }
