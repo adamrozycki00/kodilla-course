@@ -1,0 +1,30 @@
+select
+	il.name list
+    , i.summary task
+    , i.description 'task description'
+from
+	issues i
+		join issuelists il on il.id = i.issuelist_id
+order by
+	il.id
+    , i.id;
+
+select
+	i.summary Task
+    , i.description 'Task description'
+    , concat(u.firstname, ' ', u.lastname) 'User assigned'
+from
+	issues i
+		join users u on u.id = i.user_id_assigned_to
+order by
+    i.id;
+
+select
+	u.firstname 'First name'
+    , u.lastname 'Last name'
+    , count(*) 'Number of tasks'
+from
+	issues i
+		join users u on u.id = i.user_id_assigned_to
+group by
+	u.id;
