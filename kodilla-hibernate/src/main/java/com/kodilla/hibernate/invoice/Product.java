@@ -35,7 +35,6 @@ public class Product {
             mappedBy = "product",
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
-
     )
     public List<Item> getItems() {
         return items;
