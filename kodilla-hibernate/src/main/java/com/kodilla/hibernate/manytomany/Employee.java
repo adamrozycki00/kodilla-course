@@ -11,7 +11,7 @@ import java.util.List;
 )
 @NamedQuery(
         name = "Employee.retrieveEmployeesByNamePart",
-        query = "from Employee where lastname like :namePart"
+        query = "from Employee where lastname like concat('%', :namePart, '%')"
 )
 @Entity
 @Table(name = "employees")

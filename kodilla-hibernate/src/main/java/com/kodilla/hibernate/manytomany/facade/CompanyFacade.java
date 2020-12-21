@@ -20,11 +20,11 @@ public class CompanyFacade {
     private CompanyDao companyDao;
 
     public List<Employee> findEmployeesByNamePart(String namePart) {
-        return employeeDao.retrieveEmployeesByNamePart("%" + namePart + "%");
+        return employeeDao.retrieveEmployeesByNamePart(namePart);
     }
 
     public List<Company> findCompaniesByNamePart(String namePart) {
-        return companyDao.retrieveCompaniesByNamePart("%" + namePart + "%");
+        return companyDao.retrieveCompaniesByNamePart(namePart);
     }
 
     public <S extends Company> S saveCompany(S company) {
