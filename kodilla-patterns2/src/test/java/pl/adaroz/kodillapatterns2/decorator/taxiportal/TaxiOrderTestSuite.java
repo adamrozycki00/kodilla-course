@@ -1,6 +1,6 @@
 package pl.adaroz.kodillapatterns2.decorator.taxiportal;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
@@ -74,4 +74,29 @@ public class TaxiOrderTestSuite {
         assertEquals("Drive a course by MyTaxi Network + child seat", description);
     }
 
+    @Test
+    public void testUberWithTwoChildSeatsGetCost() {
+        //given
+        TaxiOrder order = new BasicTaxiOrder();
+        order = new UberNetworkOrderDecorator(order);
+        order = new ChildSeatDecorator(order);
+        order = new ChildSeatDecorator(order);
+        //when
+        BigDecimal calculatedCost = order.getCost();
+        //then
+        assertEquals(new BigDecimal(29), calculatedCost);
+    }
+
+    @Test
+    public void testUberWithTwoChildSeatsGetDescription() {
+        //given
+        TaxiOrder order = new BasicTaxiOrder();
+        order = new UberNetworkOrderDecorator(order);
+        order = new ChildSeatDecorator(order);
+        order = new ChildSeatDecorator(order);
+        //when
+        String description = order.gerDescription();
+        //then
+        assertEquals("Drive a course by Uber Network + child seat + child seat", description);
+    }
 }
