@@ -14,8 +14,8 @@ public class MyTaxiNetworkOrderDecorator extends AbstractTaxiOrderDecorator {
     }
 
     @Override
-    public String gerDescription() {
-        return super.gerDescription() + " by MyTaxi Network";
+    public String getDescription() {
+        return super.getDescription() + " by MyTaxi Network";
     }
 
 }

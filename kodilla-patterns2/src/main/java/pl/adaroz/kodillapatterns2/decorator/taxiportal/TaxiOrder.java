@@ -6,6 +6,6 @@ public interface TaxiOrder {
 
     BigDecimal getCost();
 
-    String gerDescription();
+    String getDescription();
 
 }
