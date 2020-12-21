@@ -1,22 +1,15 @@
 package com.kodilla.hibernate.manytomany.facade;
 
+import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.Employee;
-import com.kodilla.hibernate.manytomany.facade.dao.CompanyDao;
-import com.kodilla.hibernate.manytomany.facade.dao.EmployeeDao;
+import com.kodilla.hibernate.manytomany.dao.CompanyDao;
+import com.kodilla.hibernate.manytomany.dao.EmployeeDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.NamedQuery;
 import java.util.List;
 
-@NamedQuery(
-        name = "Employee.retrieveEmployeesByNamePart",
-        query = "from Employee where lastname like :namePart"
-)
-@NamedQuery(
-        name = "Employee.retrieveCompaniesByNamePart",
-        query = "from Company where name like :namePart"
-)
 @Service
 public class CompanyFacade {
 
@@ -30,8 +23,19 @@ public class CompanyFacade {
         return employeeDao.retrieveEmployeesByNamePart("%" + namePart + "%");
     }
 
-    public List<Employee> findCompaniesByNamePart(String namePart) {
+    public List<Company> findCompaniesByNamePart(String namePart) {
         return companyDao.retrieveCompaniesByNamePart("%" + namePart + "%");
     }
 
+    public <S extends Company> S saveCompany(S company) {
+        return companyDao.save(company);
+    }
+
+    public <S extends Employee> S saveEmployee(S employee) {
+        return employeeDao.save(employee);
+    }
+
+    public void deleteCompanyById(Integer id) {
+        companyDao.deleteById(id);
+    }
 }
