@@ -12,6 +12,10 @@ import java.util.List;
                 "where substr(company_name, 1, 3) = :substring",
         resultClass = Company.class
 )
+@NamedQuery(
+        name = "Company.retrieveCompaniesByNamePart",
+        query = "from Company where name like concat('%', :namePart, '%')"
+)
 @Entity
 @Table(name = "companies")
 public class Company {
