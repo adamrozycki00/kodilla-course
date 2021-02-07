@@ -43,7 +43,7 @@ public class CrudAppTestSuite {
     }
 
     private String createCrudAppTestTask() throws InterruptedException {
-        final String XPATH_ADD_TASK_FORM = "//form[contains(@action, \"createTask\")]";
+        final String XPATH_ADD_TASK_FORM = "//form[contains(@action, \"tasks\")]";
         final String XPATH_TASK_NAME = XPATH_ADD_TASK_FORM + "/fieldset[1]/input";
         final String XPATH_TASK_CONTENT = XPATH_ADD_TASK_FORM + "/fieldset[2]/textarea";
         final String XPATH_ADD_BUTTON = XPATH_ADD_TASK_FORM + "/fieldset[3]/button";
