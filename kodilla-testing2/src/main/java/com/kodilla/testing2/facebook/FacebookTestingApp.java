@@ -25,7 +25,6 @@ public class FacebookTestingApp {
         WebElement newAccount = driver.findElement(By.xpath(XPATH_NEW_ACCOUNT));
         newAccount.click();
 
-//        while (!driver.findElement(By.xpath(XPATH_BIRTHDAY_DAY)).isDisplayed());
         Thread.sleep(500);
 
         WebElement selectDay = driver.findElement(By.xpath(XPATH_BIRTHDAY_DAY));
@@ -40,6 +39,5 @@ public class FacebookTestingApp {
         Select selectYearDropdown = new Select(selectYear);
         selectYearDropdown.selectByValue("2001");
     }
-
 
 }

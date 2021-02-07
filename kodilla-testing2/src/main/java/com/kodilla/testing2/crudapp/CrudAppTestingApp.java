@@ -27,7 +27,6 @@ public class CrudAppTestingApp {
         WebElement selectCombo = driver.findElement(By.xpath(XPATH_SELECT));
         Select selectBoard = new Select(selectCombo);
         selectBoard.selectByIndex(1);
-
     }
 
 }
