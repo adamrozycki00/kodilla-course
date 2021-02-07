@@ -38,6 +38,7 @@ public class CrudAppTestSuite {
     public void shouldCreateTrelloCard() throws InterruptedException {
         String taskName = createCrudAppTestTask();
         sendTestTaskToTrello(taskName);
+        removeTaskInCrudApp(taskName);
         assertTrue(checkIfTaskExistsInTrello(taskName));
     }
 
@@ -87,6 +88,16 @@ public class CrudAppTestSuite {
         Thread.sleep(2000);
     }
 
+    private void removeTaskInCrudApp(String taskName) {
+        driver.findElements(By.xpath("//form[@class=\"datatable__row\"]")).stream()
+                .filter(anyForm ->
+                        anyForm.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]"))
+                                .getText().equals(taskName))
+                .forEach(theForm ->
+                        theForm.findElement(By.xpath(".//div/fieldset[1]/button[4]"))
+                                .click());
+    }
+
     private boolean checkIfTaskExistsInTrello(String taskName) throws InterruptedException {
         final String TRELLO_URL = "https://trello.com/login";
         boolean result;
@@ -118,6 +129,5 @@ public class CrudAppTestSuite {
 
         return result;
     }
-
 
 }
