@@ -100,10 +100,12 @@ public class CrudAppTestSuite {
 
     private boolean checkIfTaskExistsInTrello(String taskName) throws InterruptedException {
         final String TRELLO_URL = "https://trello.com/login";
+        final String XPATH_COOKIES = "/html/body/div[3]/div/button";
         boolean result;
         WebDriver driverTrello = WebDriverConfig.getDriver(WebDriverConfig.CHROME);
         driverTrello.get(TRELLO_URL);
 
+        driverTrello.findElement(By.xpath(XPATH_COOKIES)).click();
         driverTrello.findElement(By.id("user")).sendKeys(LOGIN);
         driverTrello.findElement(By.id("password")).sendKeys(PASSWORD);
         WebElement login = driverTrello.findElement(By.id("login"));
